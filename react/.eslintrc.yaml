@@ -1,0 +1,45 @@
+extends: '@absolunet/react'
+
+
+settings:
+  react:
+    version: latest
+
+
+rules:
+  arrow-body-style: [off]
+  unicorn/consistent-function-scoping: [off]
+  unicorn/no-keyword-prefix: [off]
+  unicorn/prevent-abbreviations: [off]
+  react/jsx-fragments: [off]
+  react/jsx-one-expression-per-line: [off]
+  react/jsx-props-no-spreading: [off]
+  react/forbid-prop-types: [off]
+  camelcase: [off]
+  linebreak-style: [off]
+  no-warning-comments: [warn]
+  no-console: [warn]
+  quote-props: [off]
+  import/extensions:
+    - off
+    -
+      ignore:
+        - '^~konstan$'
+  import/no-unresolved:
+    - off
+    -
+      ignore:
+        - '^~konstan$'
+  no-undef:
+    - off
+    - ignore:
+        - 'globalThis'
+
+
+overrides:
+  -
+    files:
+      - '*.test.js'
+
+    env:
+      jest: true

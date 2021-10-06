@@ -1,0 +1,35 @@
+{
+  "name": "Reacticon",
+  "shortName": "Reacticon",
+  "description": "Reacticon 4 Shimmer",
+  "colors": {
+    "blue": {
+      "light": "#aadaff",
+      "main": "#315977",
+      "dark": "#18374e"
+    },
+    "green": {
+      "light": "#25d4b2",
+      "main": "#16a085",
+      "dark": "#0e6554"
+    },
+    "red": {
+      "light": "#FC3E3D",
+      "main": "#D02D2C",
+      "dark": "#851110"
+    },
+    "orange": {
+      "main": "#EBA805"
+    },
+    "gray": {
+      "transparentWhite": "rgba(255, 255, 255, 0.6)",
+      "white": "#FFFFFF",
+      "lighter": "#F7F7F7",
+      "light": "#E4E4E4",
+      "medium": "#AEAFAF",
+      "dark": "#737373",
+      "black": "#000000",
+      "transparentBlack": "rgba(0, 0, 0, 0.23)"
+    }
+  }
+}

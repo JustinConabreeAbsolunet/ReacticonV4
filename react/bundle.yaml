@@ -1,0 +1,18 @@
+# Human-readable name
+name: 'Reacticon 4'
+
+
+# Description and purpose
+description: 'Reacticon presentation bundle'
+
+
+# Build path
+output: '../public/js/react'
+
+
+# Konstan output folder path
+konstanOutput: '../public/js'
+
+
+# Public URL
+url: '/static/build'

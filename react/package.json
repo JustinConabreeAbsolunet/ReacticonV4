@@ -1,0 +1,52 @@
+{
+  "name": "reacticon-shimmer",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build:all:production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build:all": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build:watch": "npm run build:all -- --watch",
+    "build:watch-poll": "npm run build:watch -- --watch-poll=1000"
+  },
+  "dependencies": {
+    "@date-io/moment": "^1.3.13",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/pickers": "^3.2.10",
+    "@material-ui/styles": "^4.11.4",
+    "axios": "^0.19.2",
+    "clsx": "^1.1.0",
+    "history": "^4.10.1",
+    "lodash.throttle": "4.1.1",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "pubsub-js": "^1.8.0",
+    "query-string": "^6.11.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-masonry-css": "^1.0.16",
+    "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.28.1"
+  },
+  "devDependencies": {
+    "@absolunet/eslint-config-react": "^1.4.4",
+    "@absolunet/fss": "^1.6.2",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.1",
+    "babel-jest": "^26.0.1",
+    "core-js": "^3.6.4",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-vue": "^6.1.2",
+    "laravel-mix": "^5.0.1",
+    "laravel-mix-eslint": "^0.1.3",
+    "webpack-bundle-analyzer": "^3.6.1"
+  }
+}
