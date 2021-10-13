@@ -17,7 +17,7 @@ const useDelayedTransition = () => {
 	const unblock = useRef();
 
 	useEffect(() => {
-		// Override globalThis.addEventListener to prevent binding beforeunload while we add our blocker
+		// Reacticon: Override globalThis.addEventListener to prevent binding beforeunload while we add our blocker
 		const originalWindowAddEventListener = globalThis.addEventListener;
 		globalThis.addEventListener = (type, listener, options) => {
 			if (type === 'beforeunload') {
@@ -30,13 +30,14 @@ const useDelayedTransition = () => {
 			}
 		};
 
+		// Reacticon: Register block function
 		unblock.current = history.block((location) => {
-			// Ignore query string changes
+			// Reacticon: Ignore query string changes
 			if (location.pathname === pathname) {
 				return true;
 			}
 
-			// Ignore hardcoded routes
+			// Reacticon: Ignore hardcoded routes
 			const isInternalRoute = KNOWN_ROUTES.some((path) => {
 				return !!matchPath(location.pathname, {
 					path,
@@ -48,11 +49,13 @@ const useDelayedTransition = () => {
 				return true;
 			}
 
+			// Reacticon: Return the pathname of the next page
 			return `${DELAY_MESSAGE_PREFIX}${location.pathname}`;
 		});
 
 		globalThis.addEventListener = originalWindowAddEventListener;
 
+		// Reacticon: Unregister on page change
 		return () => {
 			if (typeof unblock.current === 'function') {
 				unblock.current();
@@ -63,6 +66,7 @@ const useDelayedTransition = () => {
 	useEffect(() => {
 		// eslint-disable-next-line consistent-return
 		globalThis.handleRouteChangeConfirmation = async (message, proceed) => {
+			// Reacticon: Bypass blocking if we have a root shimmer to display
 			if (globalThis.avoidDelayedTransition) {
 				globalThis.avoidDelayedTransition = false;
 				if (typeof unblock.current === 'function') {
@@ -72,13 +76,15 @@ const useDelayedTransition = () => {
 				return proceed(true);
 			}
 
+			// Reacticon: Show loading bar
 			dispatch(setGlobalLoading(true));
 
 			const nextPathname = message.replace(DELAY_MESSAGE_PREFIX, '');
 
-			// Calling service caches the route result
+			// Reacticon: Calling service caches the route result, so when it hits the Fallback component, it loads instantly
 			await apiService.getRouteInformation(nextPathname);
 
+			// Reacticon: Tear down
 			dispatch(setGlobalLoading(false));
 			if (typeof unblock.current === 'function') {
 				unblock.current();
