@@ -13,7 +13,7 @@ const useStyles = makeStyles(style);
 
 const Main = ({ children }) => {
 	const classes = useStyles();
-	// Reacticon: Needs to be a child of Router. Otherwise we don't have access to location
+	// Reacticon: Needs to be a child of Router. Otherwise we don't have access to location. Could be refactored into a Provider
 	useDelayedTransition();
 
 	// Reacticon: Main application layout
